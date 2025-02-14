@@ -16,6 +16,7 @@ var cardSet;
 var board = [];
 var rows = 4;
 var columns = 5;
+var NUMBER_OF_TRIES = 10;
 
 var card1Selected;
 var card2Selected;
@@ -52,7 +53,7 @@ function startGame() {
             // <img id="0-0" class="card" src="img.jpg">
             let card = document.createElement("img");
             card.id = r.toString() + "-" + c.toString();
-            card.src = cardImg + ".jpg";
+            card.src = "images-folder/" + cardImg + ".jpg"; 
             card.classList.add("card");
             card.addEventListener("click", selectCard);
             document.getElementById("board").append(card);
@@ -68,12 +69,15 @@ function hideCards() {
     for(let r = 0; r < rows; r++) {
         for(let c = 0; c < columns; c++) {
             let card = document.getElementById(r.toString() + "-" + c.toString());
-            card.src = "back.jpg";
+            card.src = "images-folder/back.jpg";
         }
     }
 }
 
-function selectCard() {
+function selectCard() {if (errors === NUMBER_OF_TRIES){
+    return;
+};
+
     if (this.src.includes("back")) {
         if (!card1Selected) {
             card1Selected = this;
@@ -82,7 +86,7 @@ function selectCard() {
             let r = parseInt(coords[0]);
             let c = parseInt(coords[1]);
 
-            card1Selected.src = board[r][c] + ".jpg";
+            card1Selected.src = "images-folder/" + board[r][c] + ".jpg";
            
         }
         else if (!card2Selected && this !=card1Selected) {
@@ -92,7 +96,7 @@ function selectCard() {
             let r = parseInt(coords[0]);
             let c = parseInt(coords[1]);
 
-            card2Selected.src = board[r][c] + ".jpg";
+            card2Selected.src = "images-folder/" + board[r][c] + ".jpg";
             setTimeout(update, 1000);
         }
     } 
@@ -101,10 +105,16 @@ function selectCard() {
 function update() {
     //if cards are not the same, flip both back
     if(card1Selected.src != card2Selected.src) {
-        card1Selected.src = "back.jpg";
-        card2Selected.src = "back.jpg";
+        card1Selected.src = "images-folder/back.jpg";
+        card2Selected.src = "images-folder/back.jpg";
         errors += 1;
-        document.getElementById("errors").innerText = errors;
+        if (errors < NUMBER_OF_TRIES){
+            document.getElementById("errors").innerText = errors;
+        }
+        else{
+            document.getElementById("errors").innerText = 'Game Over';
+        };
+        
     }
     card1Selected = null;
     card2Selected = null;
