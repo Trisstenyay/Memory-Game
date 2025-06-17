@@ -1,4 +1,4 @@
-var errors = 0;
+
 var cardList = [
     "audi",
     "bmw",
@@ -16,7 +16,9 @@ var cardSet;
 var board = [];
 var rows = 4;
 var columns = 5;
-var NUMBER_OF_TRIES = 10;
+var errors = 0;
+var NUMBER_OF_TRIES = 20;
+var matches = 0;
 
 var card1Selected;
 var card2Selected;
@@ -103,19 +105,38 @@ function selectCard() {if (errors === NUMBER_OF_TRIES){
 }
 
 function update() {
-    //if cards are not the same, flip both back
+    
     if(card1Selected.src != card2Selected.src) {
         card1Selected.src = "images-folder/back.jpg";
         card2Selected.src = "images-folder/back.jpg";
         errors += 1;
+
         if (errors < NUMBER_OF_TRIES){
             document.getElementById("errors").innerText = errors;
+        } else {
+            document.getElementById("errors").innerText = 'Game Over Loser😜';
+
+            // 🔊 Play evil laugh sound
+            const loseSound = new Audio("images-folder/loser-laugh.mp3");
+            loseSound.play();
         }
-        else{
-            document.getElementById("errors").innerText = 'Game Over';
-        };
-        
-    }
+        } else {
+            matches++;
+            if (matches === cardList.length) {
+                document.getElementById("errors").innerText = "🎉Congrats! your a winner!... until next time😏";
+
+                // ✅ Play winning sound
+                const winSound = new Audio("images-folder/winner-laugh.mp3");
+                winSound.play();
+
+                // Trigger confetti animation
+                confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+                });
+            }
+        }
     card1Selected = null;
     card2Selected = null;
 }
