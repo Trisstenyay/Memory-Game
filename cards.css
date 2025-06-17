@@ -71,12 +71,12 @@ body::before {
     overscroll-behavior: contain;  /* Prevents "bounce scroll" on mobile apps */
     border: 5px solid black; 
     box-shadow: 0 0 20px red;
-    margin-top: 0;
+    margin-top: -10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 0;
 
      /* Make board responsive */
     width: 80vw;
@@ -92,7 +92,7 @@ body::before {
 
   #errors {
     font-size: 1.5rem;
-    margin-top: 1px;
+    margin-top: 0px;
   }
 
   body {
