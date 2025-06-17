@@ -17,7 +17,7 @@ var board = [];
 var rows = 4;
 var columns = 5;
 var errors = 0;
-var NUMBER_OF_TRIES = 20;
+var NUMBER_OF_TRIES = 15;
 var matches = 0;
 
 var card1Selected;
