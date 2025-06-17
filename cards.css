@@ -53,23 +53,25 @@ body::before {
     html, body {
     margin: 0;
     padding: 0;
-    padding-bottom: 20px;
+    padding-bottom: env(safe-area-inset-bottom, 30px); /* ✅ Safe padding for webviews */
+    box-sizing: border-box;
     overflow: hidden;
     max-width: 100vw;
     max-height: 100dvh;
     touch-action: none;
-    -webkit-user-select: none;  /* No text selection */
+    -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     }
 
     #board {
     width: 90vw;    
-    height: auto;    
+    max-height: calc(100dvh - 60px); /* adjust 60px to account for margins/paddings/errors text */
+    overflow-y: auto;  
+    overscroll-behavior: contain;  /* Prevents "bounce scroll" on mobile apps */
     border: 5px solid black; 
     box-shadow: 0 0 20px red;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
