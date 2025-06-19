@@ -62,11 +62,6 @@
     }
     }
 
-
-    #errors {
-    color: white;
-    }
-
     #game-result-text {
     color: white;
     font-size: 1.5rem;
@@ -119,6 +114,10 @@
     #try-again:hover {
     box-shadow: 0 0 18px red, 0 0 30px red inset;
     transform: scale(1.05);
+    }
+
+    #errors {
+    color: white;
     }
 
 
