@@ -17,7 +17,7 @@ var board = [];
 var rows = 4;
 var columns = 5;
 var errors = 0;
-var NUMBER_OF_TRIES = 15;
+var NUMBER_OF_TRIES = 30;
 var matches = 0;
 
 var card1Selected;
@@ -105,38 +105,67 @@ function selectCard() {if (errors === NUMBER_OF_TRIES){
 }
 
 function update() {
-    
-    if(card1Selected.src != card2Selected.src) {
+    if (card1Selected.src !== card2Selected.src) {
         card1Selected.src = "images-folder/back.jpg";
         card2Selected.src = "images-folder/back.jpg";
         errors += 1;
 
-        if (errors < NUMBER_OF_TRIES){
+        if (errors < NUMBER_OF_TRIES) {
             document.getElementById("errors").innerText = errors;
         } else {
-            document.getElementById("errors").innerText = 'Game Over Loser😜';
+            document.getElementById("status-text").style.display = "none";
+            document.getElementById("game-result-text").innerText = "Game Over Loser😜";
+            document.getElementById("game-result-text").style.display = "block";
 
             // 🔊 Play evil laugh sound
             const loseSound = new Audio("images-folder/loser-laugh.mp3");
             loseSound.play();
+
+            // 🔁 Show Try Again button
+            const tryAgainBtn = document.getElementById("try-again");
+            tryAgainBtn.style.display = "inline-block";
+
+            // Optional: Add a click handler to reload the page
+            tryAgainBtn.onclick = function () {
+                document.getElementById("status-text").style.display = "block";
+                document.getElementById("game-result-text").style.display = "none";
+                location.reload(); // Reloads the game
+            };
         }
-        } else {
-            matches++;
-            if (matches === cardList.length) {
-                document.getElementById("errors").innerText = "🎉Congrats! your a winner!... until next time😏";
 
-                // ✅ Play winning sound
-                const winSound = new Audio("images-folder/winner-laugh.mp3");
-                winSound.play();
+    } else {
+        matches++;
+        if (matches === cardList.length) {
 
-                // Trigger confetti animation
-                confetti({
+             // Hide the status-text
+            document.getElementById("status-text").style.display = "none";
+
+            // Show the game result
+            const resultText = document.getElementById("game-result-text");
+            resultText.innerText = "🏆 Congrats! You're a winner!... until next time😏";
+            resultText.style.display = "block";
+
+            // ✅ Play winning sound
+            const winSound = new Audio("images-folder/winner-laugh.mp3");
+            winSound.play();
+
+            // 🎊 Trigger confetti animation
+            confetti({
                 particleCount: 200,
                 spread: 100,
                 origin: { y: 0.6 }
-                });
-            }
+            });
+
+            // 🔁 Show Try Again button on win
+            const tryAgainBtn = document.getElementById("try-again");
+            tryAgainBtn.style.display = "inline-block";
+            tryAgainBtn.onclick = function () {
+                location.reload(); // Reloads the game
+            };
         }
+    }
+
+    // Reset selections either way
     card1Selected = null;
     card2Selected = null;
 }
