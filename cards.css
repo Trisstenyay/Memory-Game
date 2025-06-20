@@ -148,7 +148,7 @@
     box-sizing: border-box;
     overflow-x: hidden;   /* ✅ Prevent horizontal scroll */
     width: 100vw;
-    min-height: 100svh;
+    height: 100vh;
     touch-action: none;
     -webkit-user-select: none;
     -ms-user-select: none;
