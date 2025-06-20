@@ -177,7 +177,7 @@
 
     #try-again {
     display: none;
-    margin-top: -8px;
+    margin-top: 16px;
     padding: 12px 24px;
     font-size: 1.2rem;
     background-color: crimson;
