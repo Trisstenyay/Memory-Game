@@ -124,7 +124,7 @@
 
 
 
-    @media (max-width: 600px) {
+     @media (max-width: 600px) {
 
     * {
     -webkit-tap-highlight-color: transparent;
@@ -132,8 +132,7 @@
     }
 
     body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
     }
     
 
@@ -142,7 +141,7 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5); 
-    z-index: -1;
+     z-index: -1;
     }
 
     html, body {
@@ -150,7 +149,7 @@
     overflow-x: hidden;   
     overflow-y: auto;
     width: 100vw;
-    min-height: 100dvh;
+    height: 100dvh;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -165,7 +164,7 @@
 
     #board {
     width: 75vw;
-    height: 85vh;
+    max-height: 85vh;
     height: auto;
     margin-bottom: 30px;
     box-sizing: border-box;
@@ -209,4 +208,4 @@
     font-size: 1.5rem;
   }
 
-}  
+}   
