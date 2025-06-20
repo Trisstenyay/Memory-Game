@@ -131,7 +131,7 @@
     -webkit-touch-callout: none;
     }
 
-   body {
+    body {
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
     }
@@ -142,13 +142,13 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5); 
-     z-index: -1;
+    z-index: -1;
     }
 
     html, body {
     box-sizing: border-box;
-    overflow-x: hidden; 
-    overflow-y: auto;  
+    overflow-x: hidden;   
+    overflow-y: auto;
     width: 100vw;
     min-height: 100dvh;
     -webkit-user-select: none;
@@ -175,7 +175,6 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-
     }
 
     #try-again {
