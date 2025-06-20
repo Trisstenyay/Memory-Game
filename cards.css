@@ -163,18 +163,17 @@
     }
 
     #board {
-    width: 75vw;
-    max-height: 85vh;
+    width: 90vw;         /* Expand width on smaller screens */
+    max-width: 400px;    /* Limit it so it doesn't get too wide on landscape */
     height: auto;
-    margin-bottom: 30px;
-    box-sizing: border-box;
-    overscroll-behavior: contain;
-    border: 5px solid black;
-    box-shadow: 0 0 20px red;
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     padding: 10px;
-    }
+    box-sizing: border-box;
+    overflow: hidden;    /* Prevent overflow */
+  }
 
     #try-again {
     display: none;
@@ -198,7 +197,7 @@
     }
 
     .card {
-    width: 24%;
+    width: 25%;
     object-fit: cover;
     margin: auto;
   }
