@@ -148,7 +148,7 @@
     box-sizing: border-box;
     overflow-x: hidden;   /* ✅ Prevent horizontal scroll */
     width: 100vw;
-    height: 100vh;
+    min-height: 100svh;
     touch-action: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -175,8 +175,8 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
     overflow-y: auto;
-
     }
 
     #try-again {
