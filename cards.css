@@ -131,17 +131,16 @@
     -webkit-touch-callout: none;
     }
 
-    body {
-        padding-bottom: env(safe-area-inset-bottom);
-    }
-    
-
     body::before {
     content: "";
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5); /* dark overlay */
     z-index: -1;
+    }
+
+    body {
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     html, body {
@@ -154,7 +153,6 @@
     -ms-user-select: none;
     user-select: none;
     }
-
 
     #status-text,
     #game-result-text {
@@ -175,7 +173,6 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    padding-bottom: env(safe-area-inset-bottom, 20px);
     overflow-y: auto;
     }
 
