@@ -152,6 +152,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
     }
 
     #status-text,
