@@ -37,7 +37,7 @@
     padding-bottom: 30px;
     margin-bottom: 50px;
     box-sizing: border-box;
-}
+    }
 
     #status-text {
     color: white;
@@ -150,6 +150,7 @@
     user-select: none;
     }
 
+
     #status-text,
     #game-result-text {
     font-size: 1.5rem;
@@ -159,7 +160,7 @@
 
     #board {
     width: 75vw;
-    height: 75vh;
+    height: auto;
     margin-bottom: 30px;
     box-sizing: border-box;
     overscroll-behavior: contain;
