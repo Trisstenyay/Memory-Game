@@ -142,7 +142,7 @@ function update() {
 
             // Show the game result
             const resultText = document.getElementById("game-result-text");
-            resultText.innerText = "🏆 Congrats! You're a winner!... until next time😏";
+            resultText.innerText = "🏆 Congrats! You're a Winner!... until next time😏";
             resultText.style.display = "block";
 
             // ✅ Play winning sound
@@ -158,9 +158,10 @@ function update() {
 
             // 🔁 Show Try Again button on win
             const tryAgainBtn = document.getElementById("try-again");
+            tryAgainBtn.textContent = "Back to Projects";
             tryAgainBtn.style.display = "inline-block";
             tryAgainBtn.onclick = function () {
-                location.reload(); // Reloads the game
+                window.location.assign("https://www.tristantenyay.com/#projects");
             };
         }
     }
